@@ -8,8 +8,19 @@ import Logout from "../features/authentication/Logout";
 
 const StyledHeaderMenu = styled.div`
   display: flex;
-  gap: 1.2rem;
+  gap: 1.6rem;
   align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-grey-50);
+  border: 1px solid var(--color-grey-200);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+  
+  &:hover {
+    background-color: var(--color-grey-100);
+    box-shadow: var(--shadow-md);
+  }
 `;
 
 function HeaderMenu() {

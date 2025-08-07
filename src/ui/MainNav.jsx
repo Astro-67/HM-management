@@ -5,7 +5,7 @@ import { HiOutlineCalendarDays, HiOutlineCog6Tooth, HiOutlineHome, HiOutlineHome
 const NavList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.4rem;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -14,12 +14,26 @@ const StyledNavLink = styled(NavLink)`
     display: flex;
     align-items: center;
     gap: 1.2rem;
-
     color: var(--color-grey-600);
     font-size: 1.6rem;
     font-weight: 500;
-    padding: 1.2rem 2.4rem;
+    padding: 1.4rem 2rem;
     transition: all 0.3s;
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: var(--color-brand-600);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+    }
   }
 
   /* This works because react-router places the active class on the active NavLink */
@@ -28,8 +42,19 @@ const StyledNavLink = styled(NavLink)`
   &.active:link,
   &.active:visited {
     color: var(--color-grey-800);
-    background-color: var(--color-grey-50);
-    border-radius: var(--border-radius-sm);
+    background-color: var(--color-grey-100);
+    transform: translateX(4px);
+    
+    &::before {
+      transform: scaleY(1);
+    }
+  }
+  
+  &.active:link,
+  &.active:visited {
+    background-color: var(--color-brand-50);
+    color: var(--color-brand-700);
+    font-weight: 600;
   }
 
   & svg {

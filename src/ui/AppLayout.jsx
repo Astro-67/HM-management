@@ -8,19 +8,35 @@ const SyledAppLayout = styled.div`
   grid-template-columns: 26rem 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
+  background-color: var(--color-grey-50);
 `;
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  padding: 4rem 4.8rem 6.4rem;
-  overflow: scroll;
+  padding: 2.4rem 3.2rem 4rem;
+  overflow: auto;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
+    z-index: 1;
+  }
 `;
+
 const Container = styled.div`
   max-width: 120rem;
   margin: 0 auto;
   display: flex;
-    flex-direction: column;
-    gap:3.2rem;
+  flex-direction: column;
+  gap: 3.2rem;
+  position: relative;
+  z-index: 2;
 `;
 
 export default function AppLayout() {
